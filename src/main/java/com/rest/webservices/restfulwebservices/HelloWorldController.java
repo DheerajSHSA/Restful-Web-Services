@@ -15,5 +15,11 @@ public class HelloWorldController {
     {
         return "Hello, World";
     }
-
+    
+    //hello-world-bean
+    @GetMapping(path = "/hello-world-bean")
+    public helloWorldBean helloWorldBean()
+    {
+        return new helloWorldBean("Hello World");
+    }
 }
