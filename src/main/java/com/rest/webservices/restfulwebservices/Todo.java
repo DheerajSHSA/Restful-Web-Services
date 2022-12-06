@@ -57,4 +57,47 @@ public class Todo {
         this.isDone = isDone;
     }
 
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + (int) (id ^ (id >>> 32));
+        result = prime * result + ((username == null) ? 0 : username.hashCode());
+        result = prime * result + ((description == null) ? 0 : description.hashCode());
+        result = prime * result + ((targetDate == null) ? 0 : targetDate.hashCode());
+        result = prime * result + (isDone ? 1231 : 1237);
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Todo other = (Todo) obj;
+        if (id != other.id)
+            return false;
+        if (username == null) {
+            if (other.username != null)
+                return false;
+        } else if (!username.equals(other.username))
+            return false;
+        if (description == null) {
+            if (other.description != null)
+                return false;
+        } else if (!description.equals(other.description))
+            return false;
+        if (targetDate == null) {
+            if (other.targetDate != null)
+                return false;
+        } else if (!targetDate.equals(other.targetDate))
+            return false;
+        if (isDone != other.isDone)
+            return false;
+        return true;
+    }
+    
 }
